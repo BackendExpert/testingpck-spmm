@@ -28,10 +28,10 @@ const Login = () => {
             .then(res => {
                 if(res.data.Status === "Success"){
                     alert("Login Success")
-                    localStorage.setItem(res.data.Token)
-                    secureLocalStorage.setItem(res.data.Result.email)
-                    secureLocalStorage.setItem(res.data.Result.username)
-                    secureLocalStorage.setItem(res.data.Result.role)
+                    localStorage.setItem("token", res.data.Token)
+                    secureLocalStorage.setItem("LoginE", res.data.Result.email)
+                    secureLocalStorage.setItem("LoginU", res.data.Result.username)
+                    secureLocalStorage.setItem("LoginR", res.data.Result.role)
                     navigate('/Dashboard/Home')
                 }
                 else{
