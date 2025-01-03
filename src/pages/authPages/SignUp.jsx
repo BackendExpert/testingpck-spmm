@@ -29,7 +29,7 @@ const SignUp = () => {
             .then(res => {
                 if(res.data.Status === "Success"){
                     alert("Registaion Success")
-                    navigate('/SignUp')
+                    navigate('/')
                 }
                 else{
                     alert(res.data.Error)

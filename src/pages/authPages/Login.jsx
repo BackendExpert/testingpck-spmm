@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import InputDefault from '../../components/Forms/InputDefault';
 import DefualtBtn from '../../components/Button/DefualtBtn';
 import { useNavigate } from 'react-router-dom';
+import secureLocalStorage from 'react-secure-storage'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -27,6 +28,11 @@ const Login = () => {
             .then(res => {
                 if(res.data.Status === "Success"){
                     alert("Login Success")
+                    localStorage.setItem(res.data.Token)
+                    secureLocalStorage.setItem(res.data.Result.email)
+                    secureLocalStorage.setItem(res.data.Result.username)
+                    secureLocalStorage.setItem(res.data.Result.role)
+                    navigate('/Dashboard/Home')
                 }
                 else{
                     alert(res.data.Error)
